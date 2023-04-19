@@ -148,3 +148,46 @@ fn main() {
     let word = first_word(my_string_literal);
 }
 ```
+
+33. Fix the errors in the following code:
+    ```rust
+    fn main() {
+      let s = String::from("hello");  // s comes into scope
+
+      takes_ownership(s);             
+      println!("{}", s);
+
+      let x = 5;                      
+
+      makes_copy(x);   
+      
+      println!("{}", x)
+    } 
+
+    fn takes_ownership(some_string: String) {
+        println!("{}", some_string);
+    } 
+    fn makes_copy(some_integer: i32) {
+        println!("{}", some_integer);
+    }
+    ```
+34. Does the following snippet produce a compile-time error?
+    ```rust
+    fn main() {
+      let s1 = gives_ownership(); 
+
+      let s2 = String::from("hello");
+
+      let s3 = takes_and_gives_back(s2);
+    }
+
+    fn gives_ownership() -> String {
+        let some_string = String::from("yours");
+
+        some_string 
+    }
+
+    fn takes_and_gives_back(a_string: String) -> String {
+        a_string
+    }
+    ```
