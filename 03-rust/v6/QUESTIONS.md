@@ -45,7 +45,7 @@
     }
     ```
 
-2. Fix and fix the error in the following snippet.
+2. Find and fix the error in the following snippet.
     ```rust
     struct Point<T> {
         x: T,
@@ -556,6 +556,28 @@
 
 36. Rewrite the `main` function of the previous example to call both `baby_name` methods.
 37. The following code does not compile. Implement the necessary trait on the `Point` type.
+    ```rust
+    use std::fmt;
+
+    trait OutlinePrint: fmt::Display {
+        fn outline_print(&self) {
+            let output = self.to_string();
+            let len = output.len();
+            println!("{}", "*".repeat(len + 4));
+            println!("*{}*", " ".repeat(len + 2));
+            println!("* {} *", output);
+            println!("*{}*", " ".repeat(len + 2));
+            println!("{}", "*".repeat(len + 4));
+        }
+    }
+
+    struct Point {
+        x: i32,
+        y: i32,
+    }
+
+    impl OutlinePrint for Point {}
+    ```
 38. Implement the `Display` trait on the `Vector<T>` type.
 39. What does the following program show on the stdout?
 
